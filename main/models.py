@@ -44,6 +44,7 @@ class Product(models.Model):
         verbose_name_plural = ('Products')
         index_together = (('id', 'slug'),)
 
+
 class Promo(models.Model):
 
     def get_file_name(self, filename: str) -> str:
