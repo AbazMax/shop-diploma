@@ -1,7 +1,7 @@
 import os
 import uuid
 from django.core.validators import MinValueValidator, MaxValueValidator
-
+from  ckeditor.fields import RichTextField
 from django.db import models
 
 
@@ -28,7 +28,7 @@ class Product(models.Model):
 
     slug = models.SlugField(max_length=200, db_index=True)
     name = models.CharField(max_length=50, unique=True)
-    description = models.TextField(max_length=500)
+    description = RichTextField(max_length=500)
     position = models.SmallIntegerField()
     is_visible = models.BooleanField(default=True)
     photo = models.ImageField(upload_to=get_file_name)
@@ -208,10 +208,10 @@ class Info(models.Model):
 
 
 class Contacts(models.Model):
-    text = models.TextField(max_length=500)
-    address = models.TextField(max_length=500)
-    open_hours = models.TextField(max_length=1000)
-    contact = models.TextField(max_length=500)
+    text = RichTextField(max_length=500)
+    address = RichTextField(max_length=500)
+    open_hours = RichTextField(max_length=1000)
+    contact = RichTextField(max_length=500)
     about_short = models.TextField(max_length=300)
     subscribe_text = models.TextField(max_length=200)
     facebook = models.CharField(max_length=200)

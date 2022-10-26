@@ -3,6 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from .models import Category, Promo, Product, Testimonials, About, WhyUs, Partners, Banner, Info, Contacts
 
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     pass
@@ -40,13 +41,16 @@ class WhyUsAdmin(admin.ModelAdmin):
 class PartnersAdmin(admin.ModelAdmin):
     list_display = ('name', 'is_visible')
 
+
 @admin.register(Banner)
 class BannerAdmin(admin.ModelAdmin):
     list_display = ('name', 'is_visible')
 
+
 @admin.register(Info)
 class InfoAdmin(admin.ModelAdmin):
     pass
+
 
 @admin.register(Contacts)
 class ContactsAdmin(admin.ModelAdmin):
