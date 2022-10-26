@@ -1,39 +1,38 @@
 from django.contrib import admin
-
-# Register your models here.
 from .models import Category, Promo, Product, Testimonials, About, WhyUs, Partners, Banner, Info, Contacts
-
+from modeltranslation.admin import TranslationAdmin
+# Register your models here.
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(TranslationAdmin):
     pass
 
 
 @admin.register(Product)
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(TranslationAdmin):
     list_filter = ('category',)
     list_display = ('name', 'price', 'category', 'position', 'is_visible')
     prepopulated_fields = {'slug': ('name',), }
 
 
 @admin.register(Promo)
-class PromoAdmin(admin.ModelAdmin):
+class PromoAdmin(TranslationAdmin):
     list_filter = ('type', 'position',)
     list_display = ('promo_product', 'type', 'end_of_promo', 'is_visible',)
 
 
 @admin.register(Testimonials)
-class TestimonialsAdmin(admin.ModelAdmin):
+class TestimonialsAdmin(TranslationAdmin):
     list_display = ('position', 'name', 'is_visible')
 
 
 @admin.register(About)
-class AboutAdmin(admin.ModelAdmin):
+class AboutAdmin(TranslationAdmin):
     list_display = ('title_line_1', 'title_line_2')
 
 
 @admin.register(WhyUs)
-class WhyUsAdmin(admin.ModelAdmin):
+class WhyUsAdmin(TranslationAdmin):
     list_display = ('delivery_title', 'price_title', 'service_title', 'refund_title')
 
 
@@ -48,10 +47,10 @@ class BannerAdmin(admin.ModelAdmin):
 
 
 @admin.register(Info)
-class InfoAdmin(admin.ModelAdmin):
+class InfoAdmin(TranslationAdmin):
     pass
 
 
 @admin.register(Contacts)
-class ContactsAdmin(admin.ModelAdmin):
+class ContactsAdmin(TranslationAdmin):
     pass

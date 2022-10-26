@@ -217,3 +217,9 @@ class Contacts(models.Model):
     facebook = models.CharField(max_length=200)
     instagram = models.CharField(max_length=200)
     linkedin = models.CharField(max_length=200)
+
+    class Meta:
+        verbose_name_plural = 'Contacts'
+
+    def __str__(self):
+        return f'Contacts'
