@@ -1,13 +1,14 @@
 import os
 import uuid
 from django.core.validators import MinValueValidator, MaxValueValidator
-from  ckeditor.fields import RichTextField
+from ckeditor.fields import RichTextField
 from django.db import models
 
 
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
+
     is_visible = models.BooleanField(default=True)
     position = models.SmallIntegerField(unique=True)
 
@@ -61,7 +62,7 @@ class Promo(models.Model):
     type = models.CharField(max_length=50, null=False, choices=period)
     promo_product = models.ForeignKey(Product, on_delete=models.CASCADE)
     title = models.CharField(max_length=300, db_index=True)
-    description = models.CharField(max_length=500)
+    description = RichTextField(max_length=500)
     sale_value = models.PositiveSmallIntegerField(validators=[MinValueValidator(2), MaxValueValidator(99)])
     end_of_promo = models.DateTimeField()
     photo = models.ImageField(upload_to=get_file_name)
@@ -184,10 +185,10 @@ class Info(models.Model):
     def get_file_name(self, filename: str) -> str:
         ext_file = filename.strip().split('.')[-1]
         new_filename = f'{uuid.uuid4()}.{ext_file}'
-        return os.path.join('logo', new_filename)
+        return os.path.join('main', new_filename)
 
     brand_name = models.CharField(max_length=50, db_index=True)
-    brand_logo = models.ImageField(upload_to=get_file_name, )
+    brand_logo = models.ImageField(upload_to=get_file_name)
     main_title_line_1 = models.CharField(max_length=200, db_index=True)
     main_title_line_2 = models.CharField(max_length=200, db_index=True)
     about_title_line_1 = models.CharField(max_length=200, db_index=True)
