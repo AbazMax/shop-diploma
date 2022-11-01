@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Promo, Product, Testimonials, About, WhyUs, Partners, Banner, Info, Contacts
+from .models import Category, Promo, Product, Testimonials, About, WhyUs, Partners, Banner, Info, Contacts, UserMessage
 from modeltranslation.admin import TranslationAdmin
 # Register your models here.
 
@@ -53,4 +53,8 @@ class InfoAdmin(TranslationAdmin):
 
 @admin.register(Contacts)
 class ContactsAdmin(TranslationAdmin):
+    pass
+
+@admin.register(UserMessage)
+class UserMessageAdmin(admin.ModelAdmin):
     pass

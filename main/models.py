@@ -3,12 +3,11 @@ import uuid
 from django.core.validators import MinValueValidator, MaxValueValidator
 from ckeditor.fields import RichTextField
 from django.db import models
-
+from django.core.validators import RegexValidator
 
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
-
     is_visible = models.BooleanField(default=True)
     position = models.SmallIntegerField(unique=True)
 
@@ -25,7 +24,7 @@ class Product(models.Model):
     def get_file_name(self, filename: str) -> str:
         ext_file = filename.strip().split('.')[-1]
         new_filename = f'{uuid.uuid4()}.{ext_file}'
-        return os.path.join('Products', new_filename)
+        return os.path.join('products', new_filename)
 
     slug = models.SlugField(max_length=200, db_index=True)
     name = models.CharField(max_length=50, unique=True)
@@ -51,7 +50,7 @@ class Promo(models.Model):
     def get_file_name(self, filename: str) -> str:
         ext_file = filename.strip().split('.')[-1]
         new_filename = f'{uuid.uuid4()}.{ext_file}'
-        return os.path.join('Promo', new_filename)
+        return os.path.join('promo', new_filename)
 
     period = (
         ('month', 'month'),
@@ -82,7 +81,7 @@ class Testimonials(models.Model):
     def get_file_name(self, filename: str) -> str:
         ext_file = filename.strip().split('.')[-1]
         new_filename = f'{uuid.uuid4()}.{ext_file}'
-        return os.path.join('Testimonials', new_filename)
+        return os.path.join('testimonials', new_filename)
 
     name = models.CharField(max_length=100, unique=True)
     profession = models.CharField(max_length=50)
@@ -104,7 +103,7 @@ class About(models.Model):
     def get_file_name(self, filename: str) -> str:
         ext_file = filename.strip().split('.')[-1]
         new_filename = f'{uuid.uuid4()}.{ext_file}'
-        return os.path.join('About', new_filename)
+        return os.path.join('about', new_filename)
 
     title_line_1 = models.CharField(max_length=50, blank=True, db_index=True)
     title_line_2 = models.CharField(max_length=50, blank=True, db_index=True)
@@ -125,7 +124,7 @@ class WhyUs(models.Model):
     def get_file_name(self, filename: str) -> str:
         ext_file = filename.strip().split('.')[-1]
         new_filename = f'{uuid.uuid4()}.{ext_file}'
-        return os.path.join('WhyUs', new_filename)
+        return os.path.join('whyus', new_filename)
 
     delivery_title = models.CharField(max_length=50)
     delivery_text = models.TextField(max_length=200)
@@ -224,3 +223,19 @@ class Contacts(models.Model):
 
     def __str__(self):
         return f'Contacts'
+
+class UserMessage(models.Model):
+    name = models.CharField(max_length=50)
+    phone_re = RegexValidator(regex=r'^(\d{3}[- .]?){2}\d{4}$', message= 'Please enter phone number in format +xxx xx xxx xx xx')
+    phone = models.CharField(max_length=15, validators=[phone_re])
+    email = models.CharField(max_length=50, blank=True)
+    subject = models.CharField(max_length=200)
+    message = models.TextField(max_length=1000)
+    is_processed = models.BooleanField(default=False)
+    date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ('-date', '-is_processed')
+
+    def __str__(self):
+        return f'{self.name} - {self.subject}'
