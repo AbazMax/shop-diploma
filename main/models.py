@@ -4,6 +4,8 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from ckeditor.fields import RichTextField
 from django.db import models
 from django.core.validators import RegexValidator
+from django.urls import reverse
+
 
 # Create your models here.
 class Category(models.Model):
@@ -43,6 +45,9 @@ class Product(models.Model):
         ordering = ('position',)
         verbose_name_plural = ('Products')
         index_together = (('id', 'slug'),)
+
+    def get_absolute_url(self):
+        return reverse('main:single_product', args=[self.id, self.slug])
 
 
 class Promo(models.Model):

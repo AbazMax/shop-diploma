@@ -13,7 +13,6 @@ def index(request):
     about = About.objects.first()
     banner = Banner.objects.filter(is_visible=True)
 
-
     data = {
         'info': info,
         'partners': partners,
@@ -26,6 +25,20 @@ def index(request):
             }
 
     return render(request, 'main/home.html', context=data)
+
+
+def single_product(request,slug):
+    product = Product.objects.get(slug=slug)
+    info = Info.objects.first()
+    rel_products = Product.objects.filter(is_visible=True).order_by('?')
+
+    data = {
+        'product': product,
+        'info': info,
+        'rel_products': rel_products,
+    }
+
+    return render(request, 'main/single-product.html', context=data)
 
 
 def about(request):
