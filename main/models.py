@@ -47,7 +47,7 @@ class Product(models.Model):
         index_together = (('id', 'slug'),)
 
     def get_absolute_url(self):
-        return reverse('main:single_product', args=[self.id, self.slug])
+        return reverse('main:product_detail', args=[self.id, self.slug])
 
 
 class Promo(models.Model):

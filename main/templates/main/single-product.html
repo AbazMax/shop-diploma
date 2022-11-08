@@ -32,10 +32,11 @@
 						<p class="single-product-pricing"><span>Per {{ product.unit }}</span> ${{ product.price }}</p>
 						<p>{{ product.description|safe }}</p>
 						<div class="single-product-form">
-							<form action="index.html">
-								<input type="number" placeholder="0">
-							</form>
-							<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+    						<form action="{% url "cart:cart_add" product.id %}" method="post">
+                                {{ cart_product_form }}
+                                {% csrf_token %}
+                                <button class="cart-btn"><i class="fas fa-shopping-cart"></i>Add to Cart</button>
+                            </form>
 							<p><strong>Category: </strong>{{ product.category }}</p>
 						</div>
 						<h4>Share:</h4>

@@ -75,7 +75,15 @@
 
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+										<a class="shopping-cart" href="cart"><i class="fas fa-shopping-cart"></i>
+                                            {% with total_items=cart|length %}
+                                            {% if cart|length > 0 %}
+                                            In cart: {{ total_items }} products, {{ cart.get_total_price }} USD
+                                            {% else %}
+                                            Empty cart
+                                            {% endif %}
+                                            {% endwith %}
+                                        </a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 									    <!--Language select form-->
                                         <form action="{% url 'set_language' %}" method="post">

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import UserMessage
+from cart.forms import CartAddProductForm
 # Create your views here.
 
 def index(request):
@@ -27,15 +28,17 @@ def index(request):
     return render(request, 'main/home.html', context=data)
 
 
-def single_product(request,slug):
+def product_detail(request, slug):
     product = Product.objects.get(slug=slug)
     info = Info.objects.first()
     rel_products = Product.objects.filter(is_visible=True).order_by('?')
+    cart_product_form = CartAddProductForm()
 
     data = {
         'product': product,
         'info': info,
         'rel_products': rel_products,
+        'cart_product_form': cart_product_form,
     }
 
     return render(request, 'main/single-product.html', context=data)
