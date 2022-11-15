@@ -44,7 +44,7 @@
                     </div>
                     <h3>{{ product.name }}</h3>
                     <p class="product-price"><span>Per {{ product.unit }}</span> {{ product.price }}$ </p>
-                    <a href="" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    <a href={{ product.slug }} class="cart-btn"><i class="fas fa-shopping-cart"></i> Order</a>
                 </div>
             </div>
                 {% endif %}
@@ -68,7 +68,7 @@
                             </span>
                         </div>
                     </div>
-                    <img src={{ promo.photo.url }} alt="">
+                    <img src={{ promo.photo.url }} alt="photo">
                 </div>
             </div>
             <!--Content Column-->
@@ -77,7 +77,7 @@
                 <h4>{{ promo.title }}</h4>
                 <div class="text">{{ promo.description|safe }}</div>
                 <!--Countdown Timer-->
-                <a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                <a href={{ promo.promo_product.slug }} class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Order now</a>
             </div>
         </div>
     </div>
@@ -140,7 +140,6 @@
 <section class="shop-banner">
     <div class="container">
         <img src={{ banner.banner_image.url }}>
-        <a href="shop.html" class="cart-btn btn-lg">Shop Now</a>
     </div>
 </section>
 <!-- end shop banner -->

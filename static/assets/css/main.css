@@ -2760,3 +2760,25 @@ table.order-details tbody td {
   vertical-align: middle;
   width: 100%;
 }
+
+.header-icons {
+ display: flex;
+}
+
+.header-icons select {
+  background-color: transparent;
+  color: #F28123;
+  font-weight: 700;
+  border-color: transparent;
+  text-align: center;
+  padding: 15px 0px;
+}
+
+.header-icons input {
+  padding: 0px 20px;
+  color: #FFFFFF;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+

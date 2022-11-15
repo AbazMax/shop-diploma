@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import *
-from .forms import UserMessage
+from .forms import UserMessage, Order
 from cart.forms import CartAddProductForm
+from cart.cart import Cart
 # Create your views here.
 
 def index(request):
@@ -105,3 +106,18 @@ def shop(request):
 
     return render(request, 'main/shop.html', context=data)
 
+def checkout(request):
+    cart = Cart(request)
+    info = Info.objects.first()
+    contacts = Contacts.objects.first()
+    partners = Partners.objects.filter(is_visible=True)
+    order = Order()
+    data = {
+        'info': info,
+        'contacts': contacts,
+        'partners': partners,
+        'cart': cart,
+        'order': order,
+    }
+
+    return render(request, 'main/checkout.html', context=data)
