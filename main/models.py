@@ -61,6 +61,9 @@ class Promo(models.Model):
         ('month', 'month'),
         ('week', 'week'),
         ('day', 'day'),
+        ('місяця', 'місяця'),
+        ('тижня', 'тижня'),
+        ('дня', 'дня'),
     )
 
     type = models.CharField(max_length=50, null=False, choices=period)
