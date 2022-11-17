@@ -1,4 +1,5 @@
 {% extends 'index.html' %}
+{% load i18n %}
 
 {% block content %}
 	<!-- search area -->
@@ -26,8 +27,8 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Check Out Product</h1>
+						<p>{% trans "Fresh and Organic" %}</p>
+						<h1>{% trans "Check Out Product" %}</h1>
 					</div>
 				</div>
 			</div>
@@ -46,7 +47,7 @@
 						    <div class="card-header" id="headingOne">
 						      <h5 class="mb-0">
 						        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          Billing Address
+						          {% trans "Billing Address" %}
 						        </button>
 						      </h5>
 						    </div>
@@ -77,14 +78,14 @@
 						<table class="order-details">
 							<thead>
 								<tr>
-									<th>Your order Details</th>
-									<th>Price</th>
+									<th><strong>{% trans "Your order Details" %}</strong></th>
+									<th><strong>{% trans "Price" %}</strong></th>
 								</tr>
 							</thead>
 							<tbody class="order-details-body">
 								<tr>
-									<td>Product</td>
-									<td>Total</td>
+									<td><strong>{% trans "Product" %}</strong></td>
+									<td><strong>{% trans "Total" %}</strong></td>
 								</tr>
                                 {% for item in cart %}
 								<tr>
@@ -96,12 +97,12 @@
 							</tbody>
 							<tbody class="checkout-details">
 								<tr>
-									<td><strong>Subtotal</strong></td>
+									<td><strong>{% trans "Subtotal" %}</strong></td>
 									<td>${{ cart.get_total_price }}</td>
 								</tr>
 							</tbody>
 						</table>
-						<a href="#" class="boxed-btn">Place Order</a>
+						<a href="#" class="boxed-btn">{% trans "Place Order" %}</a>
 					</div>
 				</div>
 			</div>

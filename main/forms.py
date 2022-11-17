@@ -1,6 +1,6 @@
 from django import forms
 from .models import UserMessage, Checkout
-from cart.cart import Cart
+
 
 class UserMessage(forms.ModelForm):
 

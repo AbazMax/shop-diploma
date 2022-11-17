@@ -1,5 +1,5 @@
 {% extends 'index.html' %}
-
+{% load i18n %}
 
 {% block content %}
 	<!-- breadcrumb-section -->
@@ -8,8 +8,8 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Fresh and Organic</p>
-						<h1>Cart</h1>
+						<p>{% trans "Fresh and Organic" %}</p>
+						<h1>{% trans "Cart" %}</h1>
 					</div>
 				</div>
 			</div>
@@ -27,11 +27,11 @@
 							<thead class="cart-table-head">
 								<tr class="table-head-row">
 									<th class="product-remove"></th>
-									<th class="product-image">Product Image</th>
-									<th class="product-name">Name</th>
-									<th class="product-price">Price</th>
-									<th class="product-quantity">Quantity</th>
-									<th class="product-total">Total</th>
+									<th class="product-image">{% trans "Product Image" %}</th>
+									<th class="product-name">{% trans "Name" %}</th>
+									<th class="product-price">{% trans "Price" %}</th>
+									<th class="product-quantity">{% trans "Quantity" %}</th>
+									<th class="product-total">{% trans "Total" %}</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -41,12 +41,12 @@
 									<td class="product-remove"><a href="{% url "cart:cart_remove" product.id %}"><i class="far fa-window-close"></i></a></td>
 									<td class="product-image"><img src={{ product.photo.url }} alt="photo"></td>
 									<td class="product-name">{{ product.name }}</td>
-									<td class="product-price">${{ item.price }} per {{ product.unit }}</td>
+									<td class="product-price">${{ item.price }} {% trans "per" %} {{ product.unit }}</td>
 									<td class="product-quantity">
                                         <form action="{% url 'cart:cart_add' item.product.id %}" method="post">
                                              {{ item.update_quantity_form.quantity }}
                                              {{ item.update_quantity_form.update }}
-                                            <button class="cart-btn">update</button>
+                                            <button class="cart-btn">{% trans "update" %}</button>
                                             {% csrf_token %}
                                         </form>
                                     </td>
@@ -64,20 +64,20 @@
 						<table class="total-table">
 							<thead class="total-table-head">
 								<tr class="table-total-row">
-									<th>Total</th>
-									<th>Price</th>
+									<th>{% trans "Total" %}</th>
+									<th>{% trans "Price" %}</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr class="total-data">
-									<td><strong>Subtotal: </strong></td>
+									<td><strong>{% trans "Subtotal" %}: </strong></td>
 									<td>${{ cart.get_total_price }}</td>
 								</tr>
 							</tbody>
 						</table>
 						<div class="cart-buttons">
-                            <a href="shop" class="boxed-btn">Shop more</a>
-							<a href="#" class="boxed-btn black">Check Out</a>
+                            <a href="shop" class="boxed-btn">{% trans "Shop more" %}</a>
+							<a href="checkout" class="boxed-btn black">{% trans "Check Out" %}</a>
 						</div>
 					</div>
 				</div>

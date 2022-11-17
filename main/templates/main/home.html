@@ -1,4 +1,5 @@
 {% extends 'index.html' %}
+{% load i18n %}
 
 {% block content %}
 <!-- hero area -->
@@ -11,8 +12,8 @@
                         <p class="subtitle">{{ info.main_title_line_1 }}</p>
                         <h1>{{ info.main_title_line_2 }}</h1>
                         <div class="hero-btns">
-                            <a href="shop" class="boxed-btn">Our products</a>
-                            <a href="contact" class="bordered-btn">Contact Us</a>
+                            <a href="shop" class="boxed-btn">{% trans "Our products" %}</a>
+                            <a href="contact" class="bordered-btn">{% trans "Contact Us" %}</a>
                         </div>
                     </div>
                 </div>
@@ -28,7 +29,7 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="section-title">
-                    <h3><span class="orange-text">Our</span> Products</h3>
+                    <h3><span class="orange-text">{% trans "Our" %}</span> {% trans "Products" %}</h3>
                     <p>{{ info.related_prod_title }}</p>
                 </div>
             </div>
@@ -43,8 +44,8 @@
                         <a href={{ product.slug }}><img src={{ product.photo.url }} alt=""></a>
                     </div>
                     <h3>{{ product.name }}</h3>
-                    <p class="product-price"><span>Per {{ product.unit }}</span> {{ product.price }}$ </p>
-                    <a href={{ product.slug }} class="cart-btn"><i class="fas fa-shopping-cart"></i> Order</a>
+                    <p class="product-price"><span>{% trans "Per" %} {{ product.unit }}</span> {{ product.price }}$ </p>
+                    <a href={{ product.slug }} class="cart-btn"><i class="fas fa-shopping-cart"></i> {% trans "Order" %}</a>
                 </div>
             </div>
                 {% endif %}
@@ -73,11 +74,11 @@
             </div>
             <!--Content Column-->
             <div class="content-column col-lg-6">
-                <h3><span class="orange-text">Deal</span> of the {{ promo.type }}</h3>
+                <h3><span class="orange-text">{% trans "Deal" %}</span> {% trans "of the " %}{{ promo.type }}</h3>
                 <h4>{{ promo.title }}</h4>
                 <div class="text">{{ promo.description|safe }}</div>
                 <!--Countdown Timer-->
-                <a href={{ promo.promo_product.slug }} class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> Order now</a>
+                <a href={{ promo.promo_product.slug }} class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i> {% trans "Order now" %} </a>
             </div>
         </div>
     </div>
@@ -128,7 +129,7 @@
                     <h2><span class="orange-text"> {{ about.title_line_2 }} </span></h2>
                     <p>{{ about.paragraph_1 }}</p>
                     <p>{{ about.paragraph_2 }}</p>
-                    <a href="about" class="boxed-btn mt-4">know more</a>
+                    <a href="about" class="boxed-btn mt-4">{% trans "know more" %}</a>
                 </div>
             </div>
         </div>

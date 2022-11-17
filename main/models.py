@@ -232,6 +232,7 @@ class Contacts(models.Model):
     def __str__(self):
         return f'Contacts'
 
+
 class UserMessage(models.Model):
     name = models.CharField(max_length=50)
     phone_re = RegexValidator(regex=r'^(\d{3}[- .]?){2}\d{4}$', message= 'Please enter phone number in format +xxx xx xxx xx xx')
@@ -247,6 +248,7 @@ class UserMessage(models.Model):
 
     def __str__(self):
         return f'{self.name} - {self.subject}'
+
 
 class Checkout(models.Model):
     name = models.CharField(max_length=50)

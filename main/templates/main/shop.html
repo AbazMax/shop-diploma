@@ -1,4 +1,5 @@
 {% extends 'index.html' %}
+{% load i18n %}
 
 {% block content %}
 	<!-- breadcrumb-section -->
@@ -24,7 +25,7 @@
                 <div class="col-md-12">
                     <div class="product-filters">
                         <ul>
-                            <li class="active" data-filter="*">All</li>
+                            <li class="active" data-filter="*">{% trans "All" %}</li>
                             {% for category in categories %}
                             <li data-filter=".filter-{{ category.name }}">{{ category.name }}</li>
                             {% endfor %}
@@ -41,8 +42,8 @@
 							<a href={{ product.slug }}><img src={{ product.photo.url }} alt="photo"></a>
 						</div>
 						<h3>{{ product.name }}</h3>
-						<p class="product-price"><span>Per {{ product.unit }}</span> {{ product.price }}$ </p>
-						<a href={{ product.slug }} class="cart-btn"><i class="fas fa-shopping-cart"></i> Order </a>
+						<p class="product-price"><span>{% trans "Per" %} {{ product.unit }}</span> {{ product.price }}$ </p>
+						<a href={{ product.slug }} class="cart-btn"><i class="fas fa-shopping-cart"></i> {% trans "Order" %} </a>
 					</div>
 				</div>
 				{% endfor %}
