@@ -250,16 +250,3 @@ class UserMessage(models.Model):
         return f'{self.name} - {self.subject}'
 
 
-class Checkout(models.Model):
-    name = models.CharField(max_length=50)
-    phone_re = RegexValidator(regex=r'^(\d{3}[- .]?){2}\d{4}$', message= 'Please enter phone number in format +xxx xx xxx xx xx')
-    phone = models.CharField(max_length=15, validators=[phone_re])
-    email = models.CharField(max_length=50, blank=True)
-    address = models.CharField(max_length=500)
-    shipping_address = models.CharField(max_length=500)
-    comment = models.TextField(max_length=1000)
-    is_processed = models.BooleanField(default=False)
-    date = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return f'{self.name} - {self.date}'

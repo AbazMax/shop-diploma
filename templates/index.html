@@ -63,13 +63,13 @@
 						<nav class="main-menu">
 							<ul>
 								<li><a href="/">{% trans 'Home' %}</a></li>
-								<li><a href="about">{% trans 'About' %}</a></li>
-								<li><a href="shop">{% trans 'Shop' %}</a></li>
-								<li><a href="contact">{% trans 'Contact' %}</a></li>
+								<li><a href="/about">{% trans 'About' %}</a></li>
+								<li><a href="/shop">{% trans 'Shop' %}</a></li>
+								<li><a href="/contact">{% trans 'Contact' %}</a></li>
 
 								<li>
 									<div class="header-icons">
-										<a class="shopping-cart" href="cart"><i class="fas fa-shopping-cart"></i>
+										<a class="shopping-cart" href="/cart"><i class="fas fa-shopping-cart"></i>
                                             {% with total_items=cart|length %}
                                             {% if cart|length > 0 %}
                                             {% trans "In cart:" %} {% trans "products for" %} {{ cart.get_total_price }} USD
@@ -155,9 +155,9 @@
 						<h2 class="widget-title">{% trans "Pages" %}</h2>
 						<ul>
 							<li><a href="/">{% trans "Home" %}</a></li>
-							<li><a href="about">{% trans "About" %}</a></li>
-							<li><a href="shop">{% trans "Shop" %}</a></li>
-							<li><a href="contact">{% trans "Contact" %}</a></li>
+							<li><a href="/about">{% trans "About" %}</a></li>
+							<li><a href="/shop">{% trans "Shop" %}</a></li>
+							<li><a href="/contact">{% trans "Contact" %}</a></li>
 						</ul>
 					</div>
 				</div>

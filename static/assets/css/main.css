@@ -409,7 +409,7 @@ p:last-child {
   background-color: #162133;
 }
 
-a.boxed-btn {
+a.boxed-btn, button.boxed-btn {
   font-family: 'Poppins', sans-serif;
   display: inline-block;
   background-color: #F28123;
@@ -439,7 +439,7 @@ a.read-more-btn:hover {
   color: #F28123;
 }
 
-a.boxed-btn, a.bordered-btn, button.cart-btn, a.cart-btn {
+a.boxed-btn, a.bordered-btn, button.cart-btn, a.cart-btn, button.boxed-btn {
   border-radius: 50px;
   border-color: transparent;
 }
@@ -1007,13 +1007,13 @@ a.navbar-brand:hover {
   opacity: 0.7;
 }
 
-a.boxed-btn {
+a.boxed-btn, button.boxed-btn {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
 
-a.boxed-btn:hover {
+a.boxed-btn:hover, button.boxed-btn:hover {
   background-color: #051922;
   color: #F28123;
 }
@@ -2782,3 +2782,9 @@ table.order-details tbody td {
 }
 
 
+.com-msg{
+  color: #012738;
+  font-weight: 700;
+  text-align: center;
+  padding: 100px;
+}

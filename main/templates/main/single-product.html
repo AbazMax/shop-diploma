@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
+{% load i18n %}
 
 {% block content %}
-
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
@@ -29,14 +29,14 @@
 				<div class="col-md-7">
 					<div class="single-product-content">
 						<h3>{{ product.name }}</h3>
-						<p class="single-product-pricing"><span>Per {{ product.unit }}</span> ${{ product.price }}</p>
+						<p class="single-product-pricing"><span>{% trans "Per" %} {{ product.unit }}</span> ${{ product.price }}</p>
 						<div class="single-product-form">
     						<form action="{% url "cart:cart_add" product.id %}" method="post">
-                                {{ cart_product_form }}
+                                {% trans "quantity" %}: {{ cart_product_form }}
                                 {% csrf_token %}
-                                <button class="cart-btn"><i class="fas fa-shopping-cart"></i>Add to Cart</button>
+                                <button class="cart-btn"><i class="fas fa-shopping-cart"></i>{% trans "Add to Cart" %}</button>
                             </form>
-							<p><strong>Category: </strong>{{ product.category }}</p>
+							<p><strong>{% trans "Category" %}: </strong>{{ product.category }}</p>
 						</div>
                         <p>{{ product.description|safe }}</p>
 					</div>
@@ -52,7 +52,7 @@
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="section-title">	
-						<h3><span class="orange-text">Related</span> Products</h3>
+						<h3><span class="orange-text">{% trans "Related" %}</span> {% trans "Products" %}</h3>
 						<p>{{ info.related_prod_title }}</p>
 					</div>
 				</div>
@@ -66,8 +66,8 @@
                                     <a href={{ product.slug }}><img src={{ product.photo.url }} alt=""></a>
                                 </div>
                                 <h3>{{ product.name }}</h3>
-                                <p class="product-price"><span>Per {{ product.unit }}</span> {{ product.price }}$ </p>
-                                <a href={{ product.slug }} class="cart-btn"><i class="fas fa-shopping-cart"></i> Order </a>
+                                <p class="product-price"><span>{% trans "Per" %} {{ product.unit }}</span> {{ product.price }}$ </p>
+                                <a href={{ product.slug }} class="cart-btn"><i class="fas fa-shopping-cart"></i> {% trans "Order" %} </a>
                             </div>
                         </div>
                      {% endif %}

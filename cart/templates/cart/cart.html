@@ -77,7 +77,7 @@
 						</table>
 						<div class="cart-buttons">
                             <a href="shop" class="boxed-btn">{% trans "Shop more" %}</a>
-							<a href="checkout" class="boxed-btn black">{% trans "Check Out" %}</a>
+							<a href="{% url "orders:order_create" %}" class="boxed-btn black">{% trans "Check Out" %}</a>
 						</div>
 					</div>
 				</div>
