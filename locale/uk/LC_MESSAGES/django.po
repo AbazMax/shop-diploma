@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-20 17:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: cart/templates/cart/cart.html:11
+#: orders/templates/orders/order/create.html:11
+msgid "Fresh and Organic"
+msgstr "Свіже та натуральне"
+
+#: cart/templates/cart/cart.html:12
+msgid "Cart"
+msgstr "Кошик"
+
+#: cart/templates/cart/cart.html:30
+msgid "Product Image"
+msgstr "Фото продукту"
+
+#: cart/templates/cart/cart.html:31
+msgid "Name"
+msgstr "Назва"
+
+#: cart/templates/cart/cart.html:32 cart/templates/cart/cart.html:68
+#: orders/templates/orders/order/create.html:64
+msgid "Price"
+msgstr "Ціна"
+
+#: cart/templates/cart/cart.html:33
+msgid "Quantity"
+msgstr "Кількість"
+
+#: cart/templates/cart/cart.html:34 cart/templates/cart/cart.html:67
+#: orders/templates/orders/order/create.html:70
+msgid "Total"
+msgstr "Всього"
+
+#: cart/templates/cart/cart.html:44
+msgid "per"
+msgstr "за"
+
+#: cart/templates/cart/cart.html:49
+msgid "update"
+msgstr "оновити"
+
+#: cart/templates/cart/cart.html:73
+#: orders/templates/orders/order/create.html:82
+msgid "Subtotal"
+msgstr "Загалом"
+
+#: cart/templates/cart/cart.html:79
+msgid "Shop more"
+msgstr "Вибрати ще"
+
+#: cart/templates/cart/cart.html:80
+msgid "Check Out"
+msgstr "Оформити"
+
+#: main/templates/main/about.html:26
+msgid "Why"
+msgstr "Чому"
+
+#: main/templates/main/contact.html:41
+msgid "Submit"
+msgstr "Відправити"
+
+#: main/templates/main/contact.html:48
+msgid "Shop Address"
+msgstr "Адреса магазину"
+
+#: main/templates/main/contact.html:52
+msgid "Shop Hours"
+msgstr "Часи роботи"
+
+#: main/templates/main/contact.html:56 templates/index.html:68
+#: templates/index.html:160
+msgid "Contact"
+msgstr "Контакти"
+
+#: main/templates/main/home.html:15
+msgid "Our products"
+msgstr "Наші продукти"
+
+#: main/templates/main/home.html:16
+msgid "Contact Us"
+msgstr "Контакти"
+
+#: main/templates/main/home.html:32
+msgid "Our"
+msgstr "Наші"
+
+#: main/templates/main/home.html:32 main/templates/main/single-product.html:55
+msgid "Products"
+msgstr "продукти"
+
+#: main/templates/main/home.html:47 main/templates/main/shop.html:45
+#: main/templates/main/single-product.html:32
+#: main/templates/main/single-product.html:69
+msgid "Per"
+msgstr "за"
+
+#: main/templates/main/home.html:48 main/templates/main/shop.html:46
+#: main/templates/main/single-product.html:70
+msgid "Order"
+msgstr "Замовити"
+
+#: main/templates/main/home.html:77
+msgid "Deal"
+msgstr "Пропозиція"
+
+#: main/templates/main/home.html:77
+msgid "of the "
+msgstr " "
+
+#: main/templates/main/home.html:81
+msgid "Order now"
+msgstr "Замовити зараз"
+
+#: main/templates/main/home.html:132
+msgid "know more"
+msgstr "Дізнатися більше"
+
+#: main/templates/main/shop.html:28
+msgid "All"
+msgstr "Всі"
+
+#: main/templates/main/single-product.html:35
+msgid "quantity"
+msgstr "кількість"
+
+#: main/templates/main/single-product.html:37
+msgid "Add to Cart"
+msgstr "Добавити у кошик"
+
+#: main/templates/main/single-product.html:39
+msgid "Category"
+msgstr "Категорія"
+
+#: main/templates/main/single-product.html:55
+msgid "Related"
+msgstr "Схожі"
+
+#: orders/templates/orders/order/create.html:12
+msgid "Check Out Product"
+msgstr "Оформити замовлення"
+
+#: orders/templates/orders/order/create.html:31
+msgid "Billing Address"
+msgstr "Адреса платника"
+
+#: orders/templates/orders/order/create.html:47
+msgid "Place Order"
+msgstr "Оформити замовлення"
+
+#: orders/templates/orders/order/create.html:63
+msgid "Your order Details"
+msgstr "Деталі замовлення"
+
+#: orders/templates/orders/order/create.html:69
+msgid "Product"
+msgstr "продукт"
+
+#: orders/templates/orders/order/created.html:19
+msgid "Thank you!"
+msgstr "Дякуємо!"
+
+#: orders/templates/orders/order/created.html:20
+msgid "Your order has been successfully completed."
+msgstr "Ваше замовлення оформлено."
+
+#: orders/templates/orders/order/created.html:21
+msgid "Our manager will contact with you as soon as possible."
+msgstr "Наш менеджер зв'яжеться з вами як можна швидше"
+
+#: orders/templates/orders/order/created.html:22
+msgid "Return to shop"
+msgstr "Повернутися до магазину"
+
+#: templates/index.html:65 templates/index.html:157
+msgid "Home"
+msgstr "Головна"
+
+#: templates/index.html:66 templates/index.html:158
+msgid "About"
+msgstr "Про нас"
+
+#: templates/index.html:67 templates/index.html:159
+msgid "Shop"
+msgstr "Магазин"
+
+#: templates/index.html:75
+msgid "In cart:"
+msgstr "У кошику:"
+
+#: templates/index.html:75
+msgid "products for"
+msgstr "продуктів на"
+
+#: templates/index.html:77
+msgid "Empty cart"
+msgstr "Кошик пустий"
+
+#: templates/index.html:96
+msgid "Ok"
+msgstr "Вибрати"
+
+#: templates/index.html:140
+msgid "About us"
+msgstr "Про нас"
+
+#: templates/index.html:146
+msgid "Get in Touch"
+msgstr "Контакти"
+
+#: templates/index.html:155
+msgid "Pages"
+msgstr "Сторінки"
+
+#: templates/index.html:166
+msgid "Subscribe"
+msgstr "Підписка"
