@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% load i18n %}
+
+{% block content %}
+
+    <div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p class="subtitle">{{ info.main_title_line_1 }}</p>
+                        <h1>{{ info.main_title_line_2 }}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="com-msg">
+    <h1>{% trans "Thank you!" %}</h1>
+    <p>{% trans "Your order has been successfully completed." %}</p>
+    <p>{% trans "Our manager will contact with you as soon as possible." %}</p>
+    <p><a href="/" class="boxed-btn">{% trans "Return to shop" %}</a></p>
+    </div>
+{% endblock %}

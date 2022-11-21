@@ -1,0 +1,117 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block content %}
+	<!-- breadcrumb-section -->
+	<div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>{% trans "Fresh and Organic" %}</p>
+						<h1>{% trans "Check Out Product" %}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end breadcrumb section -->
+
+	<!-- check out section -->
+	<div class="checkout-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="checkout-accordion-wrap">
+						<div class="accordion" id="accordionExample">
+						  <div class="card single-accordion">
+						    <div class="card-header" id="headingOne">
+						      <h5 class="mb-0">
+						        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+						          {% trans "Billing Address" %}
+						        </button>
+						      </h5>
+						    </div>
+
+						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+						      <div class="card-body">
+						        <div class="billing-address-form">
+						        	<form method="post">
+                                        {% csrf_token %}
+						        		<p>{{ form.name }}</p>
+						        		<p>{{ form.email }}</p>
+						        		<p>{{ form.address }}</p>
+						        		<p>{{ form.phone }}</p>
+                                        <p>{{ form.shipping_address }}</p>
+						        		<p>{{ form.comment }}</p>
+                                        <button class="boxed-btn">{% trans "Place Order" %}</button>
+						        	</form>
+						        </div>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<div class="order-details-wrap">
+						<table class="order-details">
+							<thead>
+								<tr>
+									<th><strong>{% trans "Your order Details" %}</strong></th>
+									<th><strong>{% trans "Price" %}</strong></th>
+								</tr>
+							</thead>
+							<tbody class="order-details-body">
+								<tr>
+									<td><strong>{% trans "Product" %}</strong></td>
+									<td><strong>{% trans "Total" %}</strong></td>
+								</tr>
+                                {% for item in cart %}
+								<tr>
+									<td>{{ item.product.name }}</td>
+									<td>${{ item.total_price}}</td>
+								</tr>
+                                {% endfor %}
+
+							</tbody>
+							<tbody class="checkout-details">
+								<tr>
+									<td><strong>{% trans "Subtotal" %}</strong></td>
+									<td>${{ cart.get_total_price }}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end check out section -->
+
+{% endblock %}
+
+{#{% block title %}Checkout{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#    <h1>Checkout</h1>#}
+{#    <div class="order-info">#}
+{#        <h3>Your order</h3>#}
+{#        <ul>#}
+{#            {% for item in cart %}#}
+{#                <li>#}
+{#                    {{ item.quantity }}x {{ item.product.name }}#}
+{#                    <span>${{ item.total_price }}</span>#}
+{#                </li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{#        <p>Total: ${{ cart.get_total_price }}</p>#}
+{#    </div>#}
+{#    <form action="." method="post" class="order-form">#}
+{#        {{ form.as_p }}#}
+{#        <p><input type="submit" value="Place order"></p>#}
+{#        {% csrf_token %}#}
+{#    </form>#}
+{#{% endblock %}#}
