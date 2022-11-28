@@ -23,7 +23,7 @@ CART_SESSION_ID = 'cart'
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#2i0dh$3g*o!dwdsr=lya4b$hy&y4@w&es*9*7vd7=*i((iu-8'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DB_NAME = os.environ.get('DB_NAME')
 DB_USER = os.environ.get('DB_USER')
@@ -34,7 +34,7 @@ DB_PORT = os.environ.get('DB_PORT') or '5432'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fruit-shop-1.herokuapp.com',]
 
 
 # Application definition
