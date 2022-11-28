@@ -1,0 +1,1 @@
+web: gunicorn fruit_shop.wsgi --log-file -
