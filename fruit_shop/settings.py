@@ -25,11 +25,11 @@ CART_SESSION_ID = 'cart'
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-#2i0dh$3g*o!dwdsr=lya4b$hy&y4@w&es*9*7vd7=*i((iu-8'
 
-# DB_NAME = os.environ.get('DB_NAME')
-# DB_USER = os.environ.get('DB_USER')
-# DB_PASSWORD = os.environ.get('DB_PASSWORD')
-# DB_HOST = os.environ.get('DB_HOST')
-# DB_PORT = os.environ.get('DB_PORT') or '5432'
+DB_NAME = os.environ.get('DB_NAME')
+DB_USER = os.environ.get('DB_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
+DB_HOST = os.environ.get('DB_HOST')
+DB_PORT = os.environ.get('DB_PORT') or '5432'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -92,25 +92,25 @@ WSGI_APPLICATION = 'fruit_shop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': DB_NAME,
-#         'USER': DB_USER,
-#         'PASSWORD': DB_PASSWORD,
-#         'HOST': DB_HOST,
-#         'PORT': DB_PORT,
-#     }}
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
-# db = dj_database_url.config()
-# DATABASES['default'].update(db)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
+    }}
+
+db = dj_database_url.config()
+DATABASES['default'].update(db)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
